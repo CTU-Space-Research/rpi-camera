@@ -1,0 +1,21 @@
+[Unit]
+Description=Raspberry Pi Camera SRT Stream
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sr
+WorkingDirectory=/home/sr/camera
+ExecStart=/home/sr/camera/stream.sh
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+# Prevent rapid restart loops
+StartLimitInterval=200
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
