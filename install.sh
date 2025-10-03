@@ -1,3 +1,13 @@
+#!/bin/bash
+
+if [ "$USER" != "sr" ]; then
+    echo "Error: This script must be run as user 'sr' due to paths configured in the systemd service"
+    exit 1
+fi
+
+cd -
+cd camera
+
 chmod +x stream.sh
 cp rpicam-stream.service /etc/systemd/system/rpicam-stream.service
 
