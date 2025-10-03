@@ -1,12 +1,9 @@
 #!/bin/bash
 
 if [ "$(pwd)" != "/home/sr/camera" ]; then
-    echo "Error: This repo must be in /home/sr/camera"
+    echo "Error: Ensure that this repo is in /home/sr/camera and run install.sh from there."
     exit 1
 fi
-
-cd -
-cd camera
 
 chmod +x stream.sh
 cp rpicam-stream.service /etc/systemd/system/rpicam-stream.service
