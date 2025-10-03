@@ -25,3 +25,5 @@ sudo systemctl status rpicam-stream.service
 # sudo systemctl stop rpicam-stream.service
 # sudo systemctl restart rpicam-stream.service
 # sudo systemctl disable rpicam-stream.service # disable autostart on boot
+
+echo -e "\nInstallation complete. The rpicam-stream service is now running."
