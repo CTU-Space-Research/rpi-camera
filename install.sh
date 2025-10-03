@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ "$USER" != "sr" ]; then
-    echo "Error: This script must be run as user 'sr' due to paths configured in the systemd service"
+if [ "$(pwd)" != "/home/sr/camera" ]; then
+    echo "Error: This repo must be in /home/sr/camera"
     exit 1
 fi
 
