@@ -27,3 +27,4 @@ sudo systemctl status rpicam-stream.service
 # sudo systemctl disable rpicam-stream.service # disable autostart on boot
 
 echo -e "\nInstallation complete. The rpicam-stream service is now running."
+echo "Stream URL: srt://$(hostname -I | awk '{print $1}'):5000"
