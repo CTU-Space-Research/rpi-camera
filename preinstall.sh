@@ -1,6 +1,6 @@
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install git ffmpeg rpicam-apps
+sudo apt install git ffmpeg rpicam-apps -y
 
 cd -
 git clone https://github.com/CTU-Space-Research/rpi-camera-service.git camera
