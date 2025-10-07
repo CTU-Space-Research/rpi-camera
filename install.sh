@@ -1,30 +1,36 @@
 #!/bin/bash
 
+# rpicam-hello --list-cameras
+
 if [ "$(pwd)" != "/home/sr/camera" ]; then
-    echo "Error: Ensure that this repo is in /home/sr/camera and run install.sh from there."
+    echo "Error: Run script from its repo here /home/sr/camera and run install.sh"
     exit 1
 fi
 
-chmod +x stream.sh
-cp rpicam-stream.service /etc/systemd/system/rpicam-stream.service
+mkdir mediamtx
+cd mediamtx
+wget https://github.com/bluenviron/mediamtx/releases/download/v1.15.1/mediamtx_v1.15.1_linux_arm64.tar.gz
+tar -xvzf mediamtx_v1.15.1_linux_arm64.tar.gz
+cd ..
 
-# reload systemd to recognize the new service
-sudo systemctl daemon-reload
+mv mediamtx.yml mediamtx/mediamtx.yml
+cp mediamtx.service /etc/systemd/system/mediamtx.service
 
-# enable the service to start on boot
-sudo systemctl enable rpicam-stream.service
+sudo systemctl daemon-reload # reload systemd to recognize the new service
+sudo systemctl enable mediamtx.service # enable to start on boot
+sudo systemctl start mediamtx.service # start immediately
+sudo systemctl status mediamtx.service # check the status
 
-# start the service immediately
-sudo systemctl start rpicam-stream.service
+# journalctl -u mediamtx.service
 
-# check the status of the service
-sudo systemctl status rpicam-stream.service
+# sudo systemctl stop mediamtx.service
+# sudo systemctl restart mediamtx.service
+# sudo systemctl disable mediamtx.service # disable start on boot
 
-# journalctl -u rpicam-stream.service
+echo -e "\nInstallation complete. The mediamtx service is now running."
 
-# sudo systemctl stop rpicam-stream.service
-# sudo systemctl restart rpicam-stream.service
-# sudo systemctl disable rpicam-stream.service # disable autostart on boot
-
-echo -e "\nInstallation complete. The rpicam-stream service is now running."
-echo "Stream URL: srt://$(hostname -I | awk '{print $1}'):5000"
+IP=$(hostname -I | awk '{print $1}')
+echo "HLS: http://$IP:8888/cam/index.m3u8"
+echo "HLS: http://$IP:8888/cam"
+echo "RTMP: rtmp://$IP/cam"
+echo "HTTP: http://$IP:8889/cam/"

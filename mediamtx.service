@@ -1,0 +1,13 @@
+[Unit]
+Description=MediamTX server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sr
+WorkingDirectory=/home/sr/camera
+ExecStart=/home/sr/camera/mediamtx/mediamtx
+
+[Install]
+WantedBy=multi-user.target
