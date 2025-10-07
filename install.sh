@@ -33,4 +33,4 @@ IP=$(hostname -I | awk '{print $1}')
 echo "HLS: http://$IP:8888/cam/index.m3u8"
 echo "HLS: http://$IP:8888/cam"
 echo "RTMP: rtmp://$IP/cam"
-echo "HTTP: http://$IP:8889/cam/"
+echo "HTTP: http://$IP:8889/cam"
