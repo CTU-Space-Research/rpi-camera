@@ -10,4 +10,4 @@ cd ~
 echo "${PWD}"
 git clone https://github.com/CTU-Space-Research/rpi-camera.git camera
 cd camera
-sudo ./install.sh
+./install.sh
