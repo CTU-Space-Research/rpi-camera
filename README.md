@@ -2,8 +2,8 @@
 This script will install systemd daemon (`mediamtx.service`) which will keep `mediamtx` alive and start it right after boot. `mediamtx` provides a number of stream servers.
 
 ## Usage
-```wget -O - https://raw.githubusercontent.com/CTU-Space-Research/rpi-camera/refs/heads/main/preinstall.sh | sudo bash```
+```wget -O - https://raw.githubusercontent.com/CTU-Space-Research/rpi-camera/refs/heads/main/preinstall.sh | bash```
 
 Or with a shortened url:
 
-```wget -O - https://tinyurl.com/rpi-camera | sudo bash```
+```wget -O - https://tinyurl.com/rpi-camera | bash```
