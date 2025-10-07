@@ -6,7 +6,7 @@ Wants=network-online.target
 [Service]
 Type=simple
 User=sr
-WorkingDirectory=/home/sr/camera
+WorkingDirectory=/home/sr/camera/mediamtx
 ExecStart=/home/sr/camera/mediamtx/mediamtx
 
 [Install]
