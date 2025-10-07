@@ -13,8 +13,8 @@ wget https://github.com/bluenviron/mediamtx/releases/download/v1.15.1/mediamtx_v
 tar -xvzf mediamtx_v1.15.1_linux_arm64.tar.gz
 cd ..
 
-mv mediamtx.yml mediamtx/mediamtx.yml
-cp mediamtx.service /etc/systemd/system/mediamtx.service
+cp mediamtx.yml mediamtx/mediamtx.yml
+sudo cp mediamtx.service /etc/systemd/system/mediamtx.service
 
 sudo systemctl daemon-reload # reload systemd to recognize the new service
 sudo systemctl enable mediamtx.service # enable to start on boot
