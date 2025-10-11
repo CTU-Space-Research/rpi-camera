@@ -7,3 +7,6 @@ This script will install systemd daemon (`mediamtx.service`) which will keep `me
 Or with a shortened url:
 
 ```wget -O - https://tinyurl.com/rpi-camera | bash```
+
+## For setting static ip
+<https://linuxpi.ca/how-to-set-static-ip-address-on-raspberry-pi-os-and-other-debian-distributions/>
