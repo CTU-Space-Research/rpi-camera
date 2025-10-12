@@ -23,3 +23,4 @@ else
 fi
 echo "Static IP setup complete"
 echo "You may need to reconnect to the device using the new IP: $IP"
+sudo reboot
